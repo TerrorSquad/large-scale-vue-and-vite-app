@@ -1,6 +1,6 @@
 import {render, screen, fireEvent} from '@/test-utils';
 
-import {ItemInterface} from "@/models/items/Item.interface.ts";
+import {ItemInterface} from "@/models/items";
 
 import ItemComponent from "./Item.component.vue";
 

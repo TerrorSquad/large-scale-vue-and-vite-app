@@ -11,7 +11,7 @@
 // import reference to Vue's defineComponent
 import {defineComponent, computed, PropType} from 'vue'
 // import a reference to our ItemInterace
-import type {ItemInterface} from '@/models/items/Item.interface.ts'
+import type {ItemInterface} from '@/models/items'
 // create our component with defineComponent
 export default defineComponent({
   name: 'ItemComponent',
