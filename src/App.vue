@@ -1,7 +1,6 @@
 <script lang="ts"
         setup>
 import ItemsListComponent from "./components/items/ItemsList.component.vue";
-import {ItemInterface} from "./models/items/Item.interface.ts";
 import {reactive} from "vue";
 
 
@@ -39,3 +38,8 @@ const onSelectItem = (id: number) => {
                         @select-item="onSelectItem"/>
   </div>
 </template>
+
+<style> .home {
+  padding: 20px;
+}
+</style>
