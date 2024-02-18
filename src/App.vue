@@ -2,9 +2,10 @@
         setup>
 import ItemsListComponent from "./components/items/ItemsList.component.vue";
 import {ItemInterface} from "./models/items/Item.interface.ts";
+import {reactive} from "vue";
 
 
-const items: ItemInterface[] = [
+const items = reactive([
   {
     id: 1,
     name: 'Item 1',
@@ -18,11 +19,23 @@ const items: ItemInterface[] = [
     name: 'Item 3',
     selected: false
   }
-];
+]);
+
+const onSelectItem = (id: number) => {
+  const item = items.find(item => item.id === id);
+  if (!item) {
+    console.warn(`onSelectItem: item with id ${id} not found`);
+    return;
+  }
+
+  item.selected = !item.selected;
+  console.log(`onSelectItem: item with id ${id} is now ${item.selected ? 'selected' : 'unselected'}`);
+}
 </script>
 
 <template>
   <div class="home">
-    <ItemsListComponent :items="items"/>
+    <ItemsListComponent :items="items"
+                        @select-item="onSelectItem"/>
   </div>
 </template>
