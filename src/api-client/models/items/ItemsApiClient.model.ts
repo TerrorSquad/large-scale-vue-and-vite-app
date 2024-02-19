@@ -22,7 +22,7 @@ export class ItemsApiClientModel implements ItemsApiClientInterface {
             const options: AxiosRequestConfig = {
                 headers: {}
             }
-
+ 
             axios
                 .get(endpoint, options)
                 .then((response: AxiosResponse) => {

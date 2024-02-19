@@ -3,9 +3,6 @@
 // import a reference to our ItemsView component
 import ItemsView from './views/Items.view.vue'
 // store a reference to import meta env into a var
-const metaEnv = import.meta.env
-
-console.log(metaEnv.VITE_API_CLIENT);
 </script>
 <template>
   <div class="home">
