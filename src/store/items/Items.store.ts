@@ -2,8 +2,8 @@
 import {reactive} from 'vue'
 // import interfaces references
 import {ItemsStateInterface} from './models'
-// import a reference to our ItemInterface
-import {ItemInterface} from '@/models'
+
+import {apiClient} from '@/api-client'
 // the items module state
 const itemsState = reactive<ItemsStateInterface>({
     loading: false,
@@ -17,35 +17,9 @@ const actions = {
         itemsState.loading = true
         itemsState.items = []
 
-        // mock some data:
-        let mockData: ItemInterface[] = [{
-            id: 1,
-            name: 'Item 1',
-            selected: false
-        }, {
-
-            id: 2,
-            name: 'Item 2', selected: false
-        }, {
-            id: 3,
-            name: 'Item 3',
-            selected: false
-        }, {
-            id: 4,
-            name: 'Item 4', selected: false
-        }, {
-            id: 5,
-            name: 'Item 5',
-            selected: false
-        }]
-// let's pretend we called some API end-point,
-// and it takes 1 second to return the data
-// by using javascript setTimeout with 1000 for the milliseconds option
-        setTimeout(() => {
-// set items data and loading to false
-            itemsState.items = mockData
-            itemsState.loading = false
-        }, 1000)
+        // load the items from the api:
+        itemsState.items = await apiClient.items.fetchItems()
+        itemsState.loading = false
     },
 
 // action that we'll invoke from our component to select/unselect a specific item
