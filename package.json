@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "npm run dev",
+    "start": "bun run dev",
     "dev": "vite --config vite.config.mock.ts --mode mock",
     "build": "vue-tsc --noEmit && vite build --config vite.config.production.ts --mode production",
     "build-mock": "vue-tsc --noEmit && vite build --config vite.config.mock.ts --mode mock",
@@ -13,7 +13,11 @@
     "with-jsonserver": "vite --config vite.config.jsonserver.ts --mode mock",
     "json-server-api": "json-server --port 3111 --watch json-server/db.json",
     "test-watch": "vitest watch",
-    "test-coverage": "vitest run --coverage"
+    "test-coverage": "vitest run --coverage",
+    "lint:js": "eslint --ext '.ts,.vue' --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "bun run lint:js && bun run lint:prettier",
+    "lintfix": "prettier --write --list-different . && bun run lint:js --fix"
   },
   "dependencies": {
     "vue": "^3.4.15"
@@ -22,11 +26,24 @@
     "@testing-library/user-event": "^14.5.2",
     "@testing-library/vue": "^8.0.2",
     "@types/node": "^20.11.19",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
     "@vitejs/plugin-vue": "^5.0.3",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "autoprefixer": "^10.4.17",
     "axios": "^1.6.7",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-vue": "^9.22.0",
     "jsdom": "^24.0.0",
     "json-server": "^1.0.0-alpha.23",
-    "typescript": "^5.2.2",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
     "vite": "^5.1.0",
     "vitest": "^1.3.0",
     "vue-tsc": "^1.8.27"
