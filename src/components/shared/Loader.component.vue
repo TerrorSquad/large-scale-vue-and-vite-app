@@ -20,7 +20,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style scoped>
 .loader {
   display: inline-block;
 }
