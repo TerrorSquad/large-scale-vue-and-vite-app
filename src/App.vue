@@ -1,12 +1,11 @@
-<script lang="ts"
-        setup>
+<script lang="ts" setup>
 // import a reference to our ItemsView component
 import ItemsView from './views/Items.view.vue'
 // store a reference to import meta env into a var
 </script>
 <template>
   <div class="home">
-    <ItemsView/>
+    <ItemsView />
   </div>
 </template>
 

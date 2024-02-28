@@ -1,20 +1,24 @@
 <template>
-  <div v-show="show"
-       class="loader"> Loading...
+  <div
+    v-show="show"
+    class="loader"
+  >
+    Loading...
     <div class="bounceball"></div>
   </div>
 </template>
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'ElLoader',
   props: {
     show: {
-      type: Boolean
-    }
-  }
-}) </script>
+      type: Boolean,
+    },
+  },
+})
+</script>
 
 <style>
 .loader {
@@ -54,4 +58,5 @@ export default defineComponent({
   100% {
     top: 0;
   }
-} </style>
+}
+</style>

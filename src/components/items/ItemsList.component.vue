@@ -1,7 +1,6 @@
-<script lang="ts"
-        setup>
+<script lang="ts" setup>
 // import a reference to our ItemInterace
-import type {ItemInterface} from '@/models'
+import type { ItemInterface } from '@/models'
 // import a reference to the Item component:
 import ItemComponent from './children/Item.component.vue'
 // import a reference to the Laoder component
@@ -19,28 +18,31 @@ const emit = defineEmits<{
 const onSelectItem = (id: number) => {
   emit('selectItem', id)
 }
-
 </script>
 
 <template>
   <div>
     <h3>Items:</h3>
-    <Loader v-show="loading"/>
+    <Loader v-show="loading" />
     <ul v-show="!loading">
-      <ItemComponent v-for="(item, index) in items"
-                     :key="item.id"
-                     :model="item"
-                     @select-item="onSelectItem">
+      <ItemComponent
+        v-for="item in items"
+        :key="item.id"
+        :model="item"
+        @select-item="onSelectItem"
+      >
         {{ item.name }} [{{ item.selected }}]
       </ItemComponent>
     </ul>
   </div>
 </template>
 
-<style> ul {
+<style>
+ul {
   padding-inline-start: 0;
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
-} </style>
+}
+</style>

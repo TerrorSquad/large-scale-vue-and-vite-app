@@ -1,7 +1,9 @@
 <template>
-  <li :class="cssClass"
-      :data-testid="testid"
-      @click="handleClick">
+  <li
+    :class="cssClass"
+    :data-testid="testid"
+    @click="handleClick"
+  >
     <div class="selected-indicator">*</div>
     <div class="name">{{ model.name }} [{{ model.selected }}]</div>
   </li>
@@ -9,27 +11,28 @@
 
 <script lang="ts">
 // import reference to Vue's defineComponent
-import {defineComponent, computed, PropType} from 'vue'
+import { defineComponent, computed, PropType } from 'vue'
 // import a reference to our ItemInterace
-import type {ItemInterface} from '@/models/items'
+import type { ItemInterface } from '@/models/items'
 // create our component with defineComponent
 export default defineComponent({
   name: 'ItemComponent',
-  emits: ['selectItem'],
   props: {
     testid: {
-      default: 'not-set'
+      default: 'not-set',
+      type: String,
     },
     model: {
       type: Object as PropType<ItemInterface>,
       default: () => {
         return {}
-      }
+      },
     },
   },
+  emits: ['selectItem'],
   // expose a property called model of type ItemInterface
 
-  setup(props, {emit}) {
+  setup(props, { emit }) {
     const cssClass = computed(() => {
       let css = 'item'
       if (props.model.selected) {
@@ -42,10 +45,12 @@ export default defineComponent({
       emit('selectItem', props.model.id)
     }
     return {
-      cssClass, handleClick
+      cssClass,
+      handleClick,
     }
-  }
-}) </script>
+  },
+})
+</script>
 
 <style>
 li.item {
@@ -76,4 +81,5 @@ li.item.selected .selected-indicator {
 
 li.item:hover {
   background-color: #eee;
-} </style>
+}
+</style>

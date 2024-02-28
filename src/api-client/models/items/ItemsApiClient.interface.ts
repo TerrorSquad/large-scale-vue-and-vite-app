@@ -6,5 +6,5 @@ import { ItemInterface } from '@/models'
  * Interface for the Items api client module
  */
 export interface ItemsApiClientInterface {
-    fetchItems: () => Promise<ItemInterface[]>
+  fetchItems: () => Promise<ItemInterface[]>
 }

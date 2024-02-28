@@ -1,1 +1,1 @@
-export * from './Item.interface.ts';
+export * from './Item.interface.ts'
