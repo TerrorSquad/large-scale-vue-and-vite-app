@@ -10,7 +10,6 @@ export const UrlUtils: UrlUtilsInterface = {
     }
     let fullUrl = baseUrl
     keys.forEach((key) => {
-      const value = params[key]
       fullUrl = fullUrl.replace(`[${key}]`, (params[key] || '').toString())
     })
     return fullUrl
