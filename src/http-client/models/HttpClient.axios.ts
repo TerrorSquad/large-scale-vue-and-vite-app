@@ -12,7 +12,7 @@ import { UrlUtils } from './UrlUtils'
  * and simplify replacement in the future if such npm package would stop being developed or other reasons
  */
 export class HttpClientAxios implements HttpClientInterface {
-  request<R, P = void>(parameters: HttpRequestParamsInterface<P>): Promise<R> {
+  async request<R, P = void>(parameters: HttpRequestParamsInterface<P>): Promise<R> {
     const { requestType, endpoint, requiresToken, payload, headers, mockDelay } = parameters
 
     const fullUrl = UrlUtils.getFullUrlWithParams(endpoint, payload as any)
@@ -39,7 +39,31 @@ export class HttpClientAxios implements HttpClientInterface {
     let result!: R
     try {
       switch (requestType) {
-        // TODO: implement other request types
+        case HttpRequestType.get: {
+          const response = await axios.get(fullUrl, options)
+          result = response?.data as R
+          break
+        }
+        case HttpRequestType.post: {
+          const response = await axios.post(fullUrl, payload, options)
+          result = response?.data as R
+          break
+        }
+        case HttpRequestType.put: {
+          const response = await axios.put(fullUrl, payload, options)
+          result = response?.data as R
+          break
+        }
+        case HttpRequestType.delete: {
+          const response = await axios.delete(fullUrl, options)
+          result = response?.data as R
+          break
+        }
+        case HttpRequestType.patch: {
+          const response = await axios.patch(fullUrl, payload, options)
+          result = response?.data as R
+          break
+        }
         default:
           console.warn('HttpClientAxios: request: requestType not implemented', requestType)
       }
