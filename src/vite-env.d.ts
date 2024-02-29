@@ -4,7 +4,7 @@
 // (reference: https://vitejs.dev/guide/env-and-mode.html#intellisense-for-typescript)
 
 interface ImportMetaEnv {
-  readonly VITE_API_CLIENT: string
+  readonly VITE_APP_CONFIG: string
   // more env variables...
 }
 

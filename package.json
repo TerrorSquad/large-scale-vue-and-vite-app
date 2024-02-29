@@ -8,6 +8,8 @@
     "dev": "vite --config vite.config.mock.ts --mode mock",
     "build": "vue-tsc --noEmit && vite build --config vite.config.production.ts --mode production",
     "build-mock": "vue-tsc --noEmit && vite build --config vite.config.mock.ts --mode mock",
+    "build-beta": "vue-tsc --noEmit && vite build --config vite.config.production.ts --mode beta",
+    "start-local": "vite --config vite.config.production.ts --mode localapis",
     "preview": "vite preview",
     "test": "vitest run",
     "with-jsonserver": "vite --config vite.config.jsonserver.ts --mode mock",
