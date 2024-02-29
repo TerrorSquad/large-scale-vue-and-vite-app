@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { HttpClientAxios, HttpRequestType, HttpRequestParamsInterface } from '@/http-client'
+import { fail } from 'assert'
 
 let mockRequestParams: HttpRequestParamsInterface<any> = {
   requestType: HttpRequestType.post,
@@ -24,7 +25,7 @@ describe('HttpClient: axios-client: request: post', () => {
         expect(response).toEqual('request completed: ' + mockRequestParams.endpoint)
       })
       .catch((e) => {
-        console.info('AxiosClient.request.post.test.ts: error', e)
+        fail('AxiosClient.request.post.test.ts: error')
       })
   })
 
