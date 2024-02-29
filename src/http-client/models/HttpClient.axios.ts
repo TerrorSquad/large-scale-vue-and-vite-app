@@ -69,7 +69,7 @@ export class HttpClientAxios implements HttpClientInterface {
       }
     } catch (e) {
       console.error('HttpClientAxios: request: error', e)
-      throw Error('HttpClientAxios: request: error')
+      throw Error('HttpClientAxios: request: exception')
     }
 
     if ((mockDelay || 0) > 0) {
