@@ -11,6 +11,12 @@ export interface ConfigInterface {
     version: number
   }
 
+  localization: {
+    apiClientOptions: LocalizationApiClientOptions
+    locales: { key: string; isDefault: boolean }[]
+    localStorageCache: { enabled: boolean; expirationInMinutes: number }
+  }
+
   httpClient: HttpClientConfigInterface
 
   apiClient: {
