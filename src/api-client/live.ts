@@ -1,6 +1,10 @@
 import { config } from '@/config'
 
-import { ApiClientInterface, ItemsApiClientModel, LocalizationApiClientModel } from '../models' // import module instances
+import {
+  ApiClientInterface,
+  ItemsApiClientModel,
+  LocalizationApiClientModel,
+} from '@/api-client/models'
 
 // create an instance of our main ApiClient that wraps the live child clients
 const apiLiveClient: ApiClientInterface = {
