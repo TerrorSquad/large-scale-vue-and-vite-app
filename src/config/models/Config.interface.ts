@@ -1,4 +1,4 @@
-import { ItemsApiClientOptions } from '@/api-client/models'
+import { ItemsApiClientOptions, LocalizationApiClientOptions } from '@/api-client/models'
 
 export interface HttpClientConfigInterface {
   tokenKey: string
